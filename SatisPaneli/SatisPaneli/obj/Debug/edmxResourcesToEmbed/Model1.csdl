@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SatisDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK__Satislar__Muster__3C69FB99" FromRole="Musteriler" ToRole="Satislar" />
+    <Property Name="Adres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SatisDetaylari">
+    <Key>
+      <PropertyRef Name="DetayID" />
+    </Key>
+    <Property Name="DetayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatisID" Type="Int32" />
+    <Property Name="UrunID" Type="Int32" />
+    <Property Name="Adet" Type="Int32" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK__SatisDeta__Satis__3F466844" FromRole="SatisDetaylari" ToRole="Satislar" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK__SatisDeta__UrunI__403A8C7D" FromRole="SatisDetaylari" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Satislar">
+    <Key>
+      <PropertyRef Name="SatisID" />
+    </Key>
+    <Property Name="SatisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MusteriID" Type="Int32" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="ToplamTutar" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Musteriler" Relationship="Self.FK__Satislar__Muster__3C69FB99" FromRole="Satislar" ToRole="Musteriler" />
+    <NavigationProperty Name="SatisDetaylari" Relationship="Self.FK__SatisDeta__Satis__3F466844" FromRole="Satislar" ToRole="SatisDetaylari" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrunAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Stok" Type="Int32" />
+    <NavigationProperty Name="SatisDetaylari" Relationship="Self.FK__SatisDeta__UrunI__403A8C7D" FromRole="Urunler" ToRole="SatisDetaylari" />
+    <Property Name="KategoriID" Type="Int32" />
+    <NavigationProperty Name="Kategoriler" Relationship="SatisDBModel.FK_Urunler_Kategoriler" FromRole="Urunler" ToRole="Kategoriler" />
+  </EntityType>
+  <Association Name="FK__Satislar__Muster__3C69FB99">
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="0..1" />
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SatisDeta__Satis__3F466844">
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="0..1" />
+    <End Role="SatisDetaylari" Type="Self.SatisDetaylari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satislar">
+        <PropertyRef Name="SatisID" />
+      </Principal>
+      <Dependent Role="SatisDetaylari">
+        <PropertyRef Name="SatisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SatisDeta__UrunI__403A8C7D">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="SatisDetaylari" Type="Self.SatisDetaylari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="SatisDetaylari">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SatisDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
+    <EntitySet Name="SatisDetaylari" EntityType="Self.SatisDetaylari" />
+    <EntitySet Name="Satislar" EntityType="Self.Satislar" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" />
+    <AssociationSet Name="FK__Satislar__Muster__3C69FB99" Association="Self.FK__Satislar__Muster__3C69FB99">
+      <End Role="Musteriler" EntitySet="Musteriler" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SatisDeta__Satis__3F466844" Association="Self.FK__SatisDeta__Satis__3F466844">
+      <End Role="Satislar" EntitySet="Satislar" />
+      <End Role="SatisDetaylari" EntitySet="SatisDetaylari" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SatisDeta__UrunI__403A8C7D" Association="Self.FK__SatisDeta__UrunI__403A8C7D">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="SatisDetaylari" EntitySet="SatisDetaylari" />
+    </AssociationSet>
+    <EntitySet Name="Kategoriler" EntityType="SatisDBModel.Kategoriler" />
+    <AssociationSet Name="FK_Urunler_Kategoriler" Association="SatisDBModel.FK_Urunler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Urunler" Relationship="SatisDBModel.FK_Urunler_Kategoriler" FromRole="Kategoriler" ToRole="Urunler" />
+  </EntityType>
+  <Association Name="FK_Urunler_Kategoriler">
+    <End Type="SatisDBModel.Kategoriler" Role="Kategoriler" Multiplicity="0..1" />
+    <End Type="SatisDBModel.Urunler" Role="Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

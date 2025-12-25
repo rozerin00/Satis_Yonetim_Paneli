@@ -1,0 +1,233 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="SatisPaneli.Admin" %>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Satış Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" runat="server" />
+    <!-- AdminLTE -->
+    <link href="~/dist/css/adminlte.min.css" rel="stylesheet" runat="server" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        /* Sticky Footer Fix */
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-wrapper {
+            flex: 1;
+        }
+
+        /* Premium Navbar Styling */
+        .navbar-light .navbar-nav .nav-link {
+            color: #fff !important; /* Always white text */
+            font-weight: 600;
+            padding: 10px 20px;
+            margin: 0 6px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .navbar-light .navbar-nav .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1em;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Hover Effects */
+        .navbar-light .navbar-nav .nav-link:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 7px 14px rgba(0,0,0,0.2);
+            filter: brightness(1.1);
+        }
+
+        /* Custom Colors for Each Button */
+        .nav-dashboard { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .nav-products { background: linear-gradient(135deg, #2af598 0%, #009efd 100%); }
+        .nav-sales { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); background: linear-gradient(to right, #43e97b 0%, #38f9d7 100%); } /* Let's use a nice Green */
+        .nav-sales-custom { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .nav-reports { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .nav-settings { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); color: #555 !important; } /* Light gray for settings or maybe Orange? Let's go Orange/Yellow */
+        .nav-settings-custom { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #fff !important; }
+
+        /* Logout Reset */
+        .navbar-nav .nav-link.text-danger {
+            background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+            color: white !important;
+        }
+
+        /* Brand Styling */
+        .navbar-brand .brand-text {
+            font-weight: 800 !important;
+            background: -webkit-linear-gradient(45deg, #0984e3, #d63031);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body class="hold-transition layout-top-nav">
+<div class="wrapper">
+
+    <!-- NAVBAR -->
+    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white shadow-sm">
+        <div class="container">
+            <a href="Default.aspx" class="navbar-brand">
+                <i class="fas fa-chart-line text-primary mr-2" style="font-size: 1.5rem;"></i>
+                <span class="brand-text font-weight-light">Satış Paneli</span>
+            </a>
+
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto align-items-center"> <!-- align-items-center to fix heights -->
+                    <li class="nav-item">
+                        <a href="Default.aspx" class="nav-link nav-dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="UrunYonetimi.aspx" class="nav-link nav-products"><i class="fas fa-boxes"></i> Ürünler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="SatisYap.aspx" class="nav-link nav-sales-custom"><i class="fas fa-shopping-cart"></i> Satış Yap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="SatisRaporu.aspx" class="nav-link nav-reports"><i class="fas fa-file-invoice-dollar"></i> Raporlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="KullaniciAyarlari.aspx" class="nav-link nav-settings-custom"><i class="fas fa-user-cog"></i> Ayarlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Sunum.aspx" class="nav-link" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white !important;"><i class="fas fa-presentation mr-1"></i> Sunum</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right navbar links -->
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-3">
+                 <li class="nav-item">
+                    <a class="nav-link text-danger" href="Login.aspx" role="button">
+                        <i class="fas fa-sign-out-alt"></i> Çıkış
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- CONTENT -->
+    <div class="content-wrapper">
+        <section class="content-header">
+             <div class="container">
+                 <!-- İsteğe bağlı breadcrumb vs. buraya -->
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <form runat="server">
+                    <asp:ScriptManager runat="server">
+                        <Scripts>
+                            <asp:ScriptReference Name="MsAjaxBundle" />
+                            <asp:ScriptReference Name="jquery" />
+                            <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                            <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                            <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                            <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                            <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                            <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                            <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                            <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                            <asp:ScriptReference Name="WebFormsBundle" />
+                        </Scripts>
+                    </asp:ScriptManager>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="float-right d-none d-sm-inline">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>© 2025 Satış Paneli.</strong> All rights reserved.
+        </div>
+    </footer>
+
+</div>
+
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
+
+<style>
+    /* Select2 Bootstrap 4 Theme Fixes */
+    .select2-container--bootstrap4 .select2-selection--single {
+        height: calc(2.25rem + 2px) !important;
+    }
+    .select2-container--bootstrap4 .select2-selection--single .select2-selection__placeholder {
+        color: #757575;
+        line-height: 2.25rem;
+    }
+    .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow {
+        position: absolute;
+        top: 50%;
+        right: 3px;
+        width: 20px;
+    }
+    .select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered {
+        line-height: 2.25rem;
+        padding-left: 12px;
+    }
+</style>
+
+<!-- JS -->
+<script src='<%= ResolveUrl("~/plugins/bootstrap/js/bootstrap.bundle.min.js") %>'></script>
+<script src='<%= ResolveUrl("~/dist/js/adminlte.min.js") %>'></script>
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Sayfa yüklendiğinde çalış
+        InitSelect2();
+
+        // UpdatePanel (Async Postback) sonrası tekrar çalışması için
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(function () {
+            InitSelect2();
+        });
+    });
+
+    function InitSelect2() {
+        // Sadece 'form-control' class'ına sahip select elementlerini dönüştür
+        // Amaç DropDownList'leri yakalamak
+        $('select.form-control').select2({
+            theme: 'bootstrap4',
+            width: '100%',
+            placeholder: 'Seçiniz...',
+            allowClear: true
+        });
+    }
+</script>
+</body>
+</html>

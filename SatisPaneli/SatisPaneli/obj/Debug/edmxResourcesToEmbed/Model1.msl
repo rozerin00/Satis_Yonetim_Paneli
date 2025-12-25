@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SatisDBModelStoreContainer" CdmEntityContainer="SatisDBEntities">
+    <EntitySetMapping Name="Musteriler">
+      <EntityTypeMapping TypeName="SatisDBModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatisDetaylari">
+      <EntityTypeMapping TypeName="SatisDBModel.SatisDetaylari">
+        <MappingFragment StoreEntitySet="SatisDetaylari">
+          <ScalarProperty Name="DetayID" ColumnName="DetayID" />
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satislar">
+      <EntityTypeMapping TypeName="SatisDBModel.Satislar">
+        <MappingFragment StoreEntitySet="Satislar">
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="ToplamTutar" ColumnName="ToplamTutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="SatisDBModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriler">
+      <EntityTypeMapping TypeName="SatisDBModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

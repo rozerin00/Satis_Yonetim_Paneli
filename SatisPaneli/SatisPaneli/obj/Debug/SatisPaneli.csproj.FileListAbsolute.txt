@@ -1,0 +1,152 @@
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\SatisPaneli.dll.config
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\SatisPaneli.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\SatisPaneli.pdb
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csc.exe
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csc.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csc.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csi.exe
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csi.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\csi.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.AppContext.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Console.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.Compression.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Net.Http.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.ValueTuple.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\vbc.exe
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\vbc.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\vbc.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\VBCSCompiler.exe
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Antlr3.Runtime.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\EntityFramework.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\EntityFramework.SqlServer.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Newtonsoft.Json.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\System.Web.Optimization.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\WebGrease.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\EntityFramework.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\EntityFramework.SqlServer.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\System.Web.Optimization.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Newtonsoft.Json.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Antlr3.Runtime.pdb
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.csproj.AssemblyReference.cache
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.csproj.CoreCompileInputs.cache
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\obj\Debug\SatisPan.EA2B35B4.Up2Date
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.dll
+C:\Users\Rozerin\Desktop\satıs-paneli\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.pdb
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.csproj.AssemblyReference.cache
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.csproj.CoreCompileInputs.cache
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\SatisPaneli.dll.config
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\SatisPaneli.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\SatisPaneli.pdb
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csc.exe
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csc.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csc.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csi.exe
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csi.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\csi.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.AppContext.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Console.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.Compression.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Net.Http.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Net.Sockets.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.ValueTuple.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\vbc.exe
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\vbc.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\vbc.rsp
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\VBCSCompiler.exe
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Antlr3.Runtime.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\EntityFramework.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\EntityFramework.SqlServer.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Newtonsoft.Json.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\System.Web.Optimization.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\WebGrease.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\EntityFramework.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\EntityFramework.SqlServer.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\System.Web.Optimization.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Newtonsoft.Json.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Antlr3.Runtime.pdb
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\obj\Debug\SatisPan.EA2B35B4.Up2Date
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.dll
+C:\Users\Rozerin\Desktop\satıs-paneli - Kopya\SatisPaneli\SatisPaneli\obj\Debug\SatisPaneli.pdb

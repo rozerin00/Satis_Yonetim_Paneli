@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="216ae8f013b941628d1cd52026eed52a" Name="Diagram1">
+        <EntityTypeShape EntityType="SatisDBModel.Musteriler" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.SatisDetaylari" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.Satislar" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SatisDBModel.Urunler" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="SatisDBModel.FK__Satislar__Muster__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK__SatisDeta__Satis__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="SatisDBModel.FK__SatisDeta__UrunI__403A8C7D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SatisDBModel.Kategoriler" Width="1.5" PointX="0.75" PointY="5.5" />
+        <AssociationConnector Association="SatisDBModel.FK_Urunler_Kategoriler" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

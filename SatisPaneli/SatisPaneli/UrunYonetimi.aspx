@@ -120,7 +120,7 @@
                         CssClass="table table-hover table-striped text-nowrap" GridLines="None" DataKeyNames="UrunID"
                         OnRowDeleting="GridView1_RowDeleting">
                         <Columns>
-                            <asp:BoundField DataField="UrunID" HeaderText="ID" ItemStyle-Width="5%" />
+                            <asp:BoundField DataField="UrunID" HeaderText="Kayıt No" />
                             <asp:BoundField DataField="KategoriAdi" HeaderText="Kategori" />
                             <asp:BoundField DataField="UrunAdi" HeaderText="Ürün Adı" />
                             <asp:BoundField DataField="BirimFiyat" HeaderText="Birim Fiyat" DataFormatString="{0:C}" />
@@ -170,8 +170,15 @@
                             <asp:Literal ID="litModalAciklama" runat="server"></asp:Literal>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <div class="modal-footer justify-content-between">
+                        <div>
+                            <!-- Sol tarafa gerekirse başka buton konabilir, şimdilik boş -->
+                        </div>
+                        <div>
+                            <asp:Button ID="btnModalDuzenle" runat="server" Text="Özellikleri Düzenle / Yeni Ekle"
+                                CssClass="btn btn-warning font-weight-bold shadow-sm" OnClick="btnModalDuzenle_Click" />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        </div>
                     </div>
                 </div>
             </div>

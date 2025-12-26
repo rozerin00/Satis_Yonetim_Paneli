@@ -15,6 +15,7 @@ namespace SatisPaneli
         protected Button btnVazgec;
         protected Label lblModalUrunAdi;
         protected Literal litModalAciklama;
+        protected Button btnModalDuzenle;
 
         SatisDBEntities db = new SatisDBEntities();
 
@@ -58,6 +59,39 @@ namespace SatisPaneli
         // Listeleme Metodu
         public void VerileriYukle()
         {
+            // --- KOPYA ÜRÜN TEMİZLİĞİ (BAŞLANGIÇ) ---
+            try
+            {
+                // Aynı isme sahip ürünleri bul
+                var kopyaGruplar = db.Urunler
+                    .GroupBy(x => x.UrunAdi)
+                    .Where(g => g.Count() > 1)
+                    .ToList();
+
+                if (kopyaGruplar.Any())
+                {
+                    foreach (var grup in kopyaGruplar)
+                    {
+                        // ID'si en küçük olanı (ilk ekleneni) ORİJİNAL kabul et, diğerlerini silinecekler listesine al
+                        var silinecekler = grup.OrderBy(x => x.UrunID).Skip(1).ToList();
+                        
+                        foreach (var urun in silinecekler)
+                        {
+                            // Bu ürünün satışı var mı kontrol et
+                            bool satisVar = db.SatisDetaylari.Any(x => x.UrunID == urun.UrunID);
+                            if (!satisVar)
+                            {
+                                db.Urunler.Remove(urun);
+                            }
+                        }
+                    }
+                    db.SaveChanges(); // Toplu silme işlemini onayla
+                }
+            }
+            catch { }
+            // --- KOPYA ÜRÜN TEMİZLİĞİ (BİTİŞ) ---
+
+
             // İlişkili tablodan (Kategoriler) veri çekerek listeleme
             var query = db.Urunler.AsQueryable();
 
@@ -69,6 +103,7 @@ namespace SatisPaneli
             }
 
             var liste = (from u in query
+                         orderby u.Kategoriler.KategoriAdi, u.UrunAdi // Kategoriye göre grupla ve sırala
                          select new
                          {
                              u.UrunID,
@@ -173,18 +208,28 @@ namespace SatisPaneli
                 else
                     ddlKategoriler.SelectedIndex = 0;
 
-                // ID'yi Gizli Alana (HiddenField) yaz ki kaydederken bunun güncelleme olduğunu anlayalım
+                // ID'yi Gizli Alana (HiddenField) yaz
                 hfUrunID.Value = urunID.ToString();
 
-                // Butonun yazısını ve rengini değiştir (Kullanıcı anlasın)
+                // Butonun yazısını ve rengini değiştir
                 btnkaydet.Text = "Güncelle";
                 btnkaydet.CssClass = "btn btn-primary btn-block shadow-sm font-weight-bold";
 
                 // Vazgeç butonunu göster
                 btnVazgec.Visible = true;
 
-                // Forma odaklan (Yukarı kaydır)
+                // Forma odaklan
                 txturunad.Focus();
+
+                // *** ÖNEMLİ DÜZELTME ***
+                // Sayfa postback olduğunda Javascript'in bu veriyi görüp formu oluşturması lazım.
+                // Manuel olarak fonksiyonu tetikliyoruz.
+                // Önce JSON verisini güvenli hale getir (tırnak işaretleri vs.)
+                if (!string.IsNullOrEmpty(detay))
+                {
+                   string safeJson = detay.Replace("'", "\\'"); 
+                   ClientScript.RegisterStartupScript(this.GetType(), "RenderForm", $"renderFormFromJSON(JSON.parse('{safeJson}'));", true);
+                }
             }
         }
 
@@ -210,12 +255,10 @@ namespace SatisPaneli
                     }
                     else
                     {
-                        // JSON mu diye kontrol et (Basitçe { ile başlıyorsa)
                         if (detay.Trim().StartsWith("{"))
                         {
                             try
                             {
-                                // JSON'ı HTML tablosuna çevir
                                 var tableHtml = "<table class='table table-sm table-bordered table-striped'>";
                                 var dict = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.Generic.Dictionary<string, string>>(detay);
 
@@ -228,25 +271,40 @@ namespace SatisPaneli
                             }
                             catch
                             {
-                                // JSON bozuksa düz yaz
                                 litModalAciklama.Text = detay.Replace(Environment.NewLine, "<br />");
                             }
                         }
                         else
                         {
-                            // Eski usül düz metin
                             litModalAciklama.Text = detay.Replace(Environment.NewLine, "<br />");
                         }
                     }
 
-                    // Modalı Aç (Javascript Tetikle)
-                    ClientScript.RegisterStartupScript(this.GetType(), "Pop", "$('#detayModal').modal('show');", true);
+                    // Ayrıca Modal içindeki Düzenle butonuna ID ata
+                    btnModalDuzenle.CommandArgument = urun.UrunID.ToString();
+                    
+                    // Modalı Aç - ScriptManager yoksa bu yöntem en iyisidir
+                    // Sys.Application.add_load kullanmak bazen gerekebilir ama şimdilik standart yöntem.
+                    // Timeout ile sarmalamak bazen DOM yüklenmesini beklemeye yardımcı olur.
+                    string script = "<script type='text/javascript'>setTimeout(function(){ $('#detayModal').modal('show'); }, 200);</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "PopModal", script);
                 }
             }
             catch (Exception ex)
             {
                 lblMesaj.Text = "Detay hatası: " + ex.Message;
             }
+        }
+
+        // Modal İçindeki "Düzenle" Butonu
+        protected void btnModalDuzenle_Click(object sender, EventArgs e)
+        {
+            // Modalı Kapat
+            // ClientScript.RegisterStartupScript(this.GetType(), "Hide", "$('#detayModal').modal('hide');", true);
+            // Script'e gerek yok, zaten btnDuzenle_Click sayfa yenileyecek ve modal kapanacak.
+            
+            // Mevcut Düzenle fonksiyonunu çağır
+            btnDuzenle_Click(sender, e);
         }
 
         // Vazgeç Butonu

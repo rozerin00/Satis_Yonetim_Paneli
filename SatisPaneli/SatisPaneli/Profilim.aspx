@@ -127,13 +127,61 @@
                                         </div>
                                     </div>
 
-                                    <!-- SİPARİŞLER (Placeholder) -->
+                                    <!-- SİPARİŞLER -->
                                     <div class="tab-pane fade" id="orders" role="tabpanel">
-                                        <div class="text-center py-5 text-muted">
-                                            <i class="fas fa-box-open fa-3x mb-3 opacity-50"></i>
-                                            <p>Henüz bir siparişiniz bulunmuyor.</p>
-                                            <a href="UrunVitrin.aspx"
-                                                class="btn btn-sm btn-outline-primary rounded-pill">Alışverişe Başla</a>
+                                        <asp:Panel ID="pnlSiparisYok" runat="server">
+                                            <div class="text-center py-5 text-muted">
+                                                <i class="fas fa-box-open fa-3x mb-3 opacity-50"></i>
+                                                <p>Henüz bir siparişiniz bulunmuyor.</p>
+                                                <a href="UrunVitrin.aspx"
+                                                    class="btn btn-sm btn-outline-primary rounded-pill">Alışverişe
+                                                    Başla</a>
+                                            </div>
+                                        </asp:Panel>
+
+                                        <div class="table-responsive">
+                                            <asp:Repeater ID="rptSiparisler" runat="server">
+                                                <HeaderTemplate>
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Sipariş No</th>
+                                                                <th>Tarih</th>
+                                                                <th>Ürünler</th>
+                                                                <th>Tutar</th>
+                                                                <th>Durum</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <td class="font-weight-bold">#<%# Eval("SatisID") %>
+                                                        </td>
+                                                        <td>
+                                                            <%# Eval("Tarih", "{0:dd.MM.yyyy HH:mm}" ) %>
+                                                        </td>
+                                                        <td>
+                                                            <div class="text-truncate" style="max-width: 300px;"
+                                                                title='<%# Eval("UrunAdlari") %>'>
+                                                                <%# Eval("UrunAdlari") %>
+                                                            </div>
+                                                            <small class="text-muted">
+                                                                <%# Eval("UrunSayisi") %> Parça
+                                                            </small>
+                                                        </td>
+                                                        <td class="text-primary font-weight-bold">
+                                                            <%# Eval("ToplamTutar", "{0:C}" ) %>
+                                                        </td>
+                                                        <td><span class="badge badge-success px-2 py-1">Teslim
+                                                                Edildi</span></td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    </tbody>
+                                                    </table>
+                                                </FooterTemplate>
+                                            </asp:Repeater>
                                         </div>
                                     </div>
                                 </div>

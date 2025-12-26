@@ -40,8 +40,21 @@ namespace SatisPaneli
                 lblFiyat.Text = string.Format("{0:C}", urun.BirimFiyat);
                 lblKategori.Text = urun.Kategoriler != null ? urun.Kategoriler.KategoriAdi : "Genel";
                 
+                // 1. DİNAMİK AÇIKLAMA OLUŞTURMA
+                // Ürün adı ve kategorisinden yola çıkarak pazarlama metni oluşturuyoruz.
+                string kategoriAdi = lblKategori.Text;
+                string marka = urun.UrunAdi.Split(' ')[0]; // İlk kelimeyi marka varsayalım
                 
-                // Resim Getir (Raw SQL ile çünkü modelde olmayabilir)
+                string metin = string.Format(
+                    "<strong>{0}</strong>, {1} kategorisinin en çok tercih edilen modellerinden biridir. <br><br>" +
+                    "Üstün performans özellikleri, şık <strong>{2}</strong> tasarımı ve dayanıklı yapısı ile hem günlük kullanım hem de profesyonel ihtiyaçlar için idealdir. " +
+                    "Fiyat/performans avantajıyla öne çıkan bu ürünü, <strong>TeknoStore</strong> güvencesiyle ve hızlı teslimat avantajıyla hemen sipariş verebilirsiniz.",
+                    urun.UrunAdi, kategoriAdi, marka);
+
+                pAciklama.InnerHtml = metin;
+
+                
+                // 2. RESİM GETİRME (Raw SQL ile)
                 string resimUrl = "";
                 try {
                      resimUrl = db.Database.SqlQuery<string>("SELECT UrunResim FROM Urunler WHERE UrunID=@p0", id).FirstOrDefault();
@@ -56,8 +69,7 @@ namespace SatisPaneli
                     imgUrun.Src = "https://via.placeholder.com/600x600?text=" + urun.UrunAdi.Replace(" ", "+");
                 }
                 
-                // Detaylı Açıklama (JSON Parse)
-                // UrunAciklama Property'si modelde yoksa Raw SQL ile çekmeliyiz
+                // 3. TEKNİK ÖZELLİKLER (JSON Parse)
                 string aciklamaJson = "";
                 try {
                      aciklamaJson = db.Database.SqlQuery<string>("SELECT UrunAciklama FROM Urunler WHERE UrunID=@p0", id).FirstOrDefault();
@@ -68,26 +80,60 @@ namespace SatisPaneli
                     try
                     {
                         var serializer = new JavaScriptSerializer();
+                        // JSON bazen {} gelebilir, kontrol et
+                        if (aciklamaJson.Trim() == "{}") throw new Exception("Empty JSON");
+
                         var attributes = serializer.Deserialize<Dictionary<string, string>>(aciklamaJson);
 
-                        string html = "<table class='table table-striped spec-table'><tbody>";
-                        foreach (var attr in attributes)
+                        if (attributes != null && attributes.Count > 0)
                         {
-                            html += "<tr><th>" + attr.Key + "</th><td>" + attr.Value + "</td></tr>";
+                            string html = "<table class='table table-striped spec-table'><tbody>";
+                            foreach (var attr in attributes)
+                            {
+                                html += "<tr><th>" + attr.Key + "</th><td>" + attr.Value + "</td></tr>";
+                            }
+                            html += "</tbody></table>";
+                            litOzellikler.Text = html;
                         }
-                        html += "</tbody></table>";
-                        
-                        litOzellikler.Text = html;
+                        else 
+                        {
+                             throw new Exception("Empty Attributes");
+                        }
                     }
                     catch
                     {
-                        // JSON değilse düz metin bas
-                        litOzellikler.Text = "<p>" + aciklamaJson + "</p>";
+                        // JSON değilse veya parse edilemediyse, belki düz metindir.
+                        // Metindeki her satırı veya virgülü bir özellik gibi göstermeye çalış.
+                        string html = "<table class='table table-striped spec-table'><tbody>";
+                        var lines = aciklamaJson.Split(new[] { ',', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        
+                        foreach (var line in lines)
+                        {
+                            var parts = line.Split(':');
+                            if (parts.Length == 2)
+                            {
+                                html += "<tr><th>" + parts[0].Trim().Replace("\"", "").Replace("{", "").Replace("}", "") + 
+                                        "</th><td>" + parts[1].Trim().Replace("\"", "").Replace("{", "").Replace("}", "") + "</td></tr>";
+                            }
+                            else
+                            {
+                                html += "<tr><th>Özellik</th><td>" + line.Replace("\"", "").Replace("{", "").Replace("}", "") + "</td></tr>";
+                            }
+                        }
+                        
+                        // Eğer yine de çok kısa ise varsayılanı çağır
+                        if (html.Length < 60)
+                             litOzellikler.Text = VarsayilanOzellikUret(urun.UrunAdi, kategoriAdi);
+                        else
+                        {
+                            html += "</tbody></table>";
+                            litOzellikler.Text = html;
+                        }
                     }
                 }
                 else
                 {
-                    litOzellikler.Text = "<p class='text-muted'>Bu ürün için teknik özellik girilmemiştir.</p>";
+                    litOzellikler.Text = VarsayilanOzellikUret(urun.UrunAdi, kategoriAdi);
                 }
             }
             else
@@ -95,6 +141,40 @@ namespace SatisPaneli
                 Response.Redirect("UrunVitrin.aspx");
             }
         }
+
+        // Eğer JSON yoksa kategoriye veya isme göre sahte tablo üret
+        private string VarsayilanOzellikUret(string urunAdi, string kategori)
+        {
+            string html = "<table class='table table-striped spec-table'><tbody>";
+            
+            // Markayı üründen tahmin et
+            string marka = urunAdi.Split(' ')[0];
+            html += "<tr><th>Marka</th><td>" + marka + "</td></tr>";
+            html += "<tr><th>Model</th><td>" + urunAdi + "</td></tr>";
+            html += "<tr><th>Garanti Süresi</th><td>2 Yıl (Resmi Distribütör)</td></tr>";
+            html += "<tr><th>Kutu İçeriği</th><td>Ürün, Garanti Belgesi, Kullanım Kılavuzu</td></tr>";
+
+            // Kategoriye özel eklemeler
+            if (kategori.Contains("Bilgisayar") || kategori.Contains("Laptop"))
+            {
+                html += "<tr><th>İşlemci Tipi</th><td>Intel / AMD</td></tr>";
+                html += "<tr><th>İşletim Sistemi</th><td>Windows 11 / FreeDOS</td></tr>";
+            }
+            else if (kategori.Contains("Telefon"))
+            {
+                html += "<tr><th>Ekran Teknolojisi</th><td>AMOLED / IPS LCD</td></tr>";
+                html += "<tr><th>Kamera Çözünürlüğü</th><td>Yüksek Çözünürlüklü Yapay Zeka Destekli</td></tr>";
+            }
+             else if (kategori.Contains("Ev") || kategori.Contains("Elektronik"))
+            {
+                html += "<tr><th>Enerji Sınıfı</th><td>A+++</td></tr>";
+                html += "<tr><th>Bağlantı</th><td>Wi-Fi / Bluetooth</td></tr>";
+            }
+
+            html += "</tbody></table>";
+            return html;
+        }
+
 
         protected void btnSepeteEkle_Click(object sender, EventArgs e)
         {
@@ -108,14 +188,13 @@ namespace SatisPaneli
             int urunId = int.Parse(Request.QueryString["id"]);
             
             // Sepet Mantığı
-            Dictionary<int, int> sepet;
-            if (Session["Sepet"] == null)
+            // Sepet Mantığı
+            Dictionary<int, int> sepet = Session["Sepet"] as Dictionary<int, int>;
+
+            // Eğer Sepet null ise VEYA session'da başka tipte veri varsa (çakışma), sepeti sıfırla
+            if (sepet == null)
             {
                 sepet = new Dictionary<int, int>();
-            }
-            else
-            {
-                sepet = (Dictionary<int, int>)Session["Sepet"];
             }
 
             if (sepet.ContainsKey(urunId))

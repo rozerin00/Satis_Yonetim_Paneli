@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunVitrin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SatisPaneli\\UrunVitrin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D20F146-5ACB-42C8-9D56-918D9EEEFCA8}|SatisPaneli\\SatisPaneli.csproj|C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\satispaneli\\urunyonetimi.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D20F146-5ACB-42C8-9D56-918D9EEEFCA8}|SatisPaneli\\SatisPaneli.csproj|solutionrelative:satispaneli\\urunyonetimi.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D20F146-5ACB-42C8-9D56-918D9EEEFCA8}|SatisPaneli\\SatisPaneli.csproj|c:\\users\\rozerin\\desktop\\sat\u0131s-paneli - kopya\\satispaneli\\satispaneli\\urunyonetimi.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D20F146-5ACB-42C8-9D56-918D9EEEFCA8}|SatisPaneli\\SatisPaneli.csproj|solutionrelative:satispaneli\\urunyonetimi.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunVitrin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SatisPaneli\\UrunVitrin.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D20F146-5ACB-42C8-9D56-918D9EEEFCA8}|SatisPaneli\\SatisPaneli.csproj|C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\satispaneli\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,26 +54,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UrunVitrin.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunVitrin.aspx.cs",
               "RelativeDocumentMoniker": "SatisPaneli\\UrunVitrin.aspx.cs",
               "ToolTip": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunVitrin.aspx.cs",
               "RelativeToolTip": "SatisPaneli\\UrunVitrin.aspx.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAAwHMAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-24T14:25:29.665Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UrunYonetimi.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunYonetimi.aspx.cs",
               "RelativeDocumentMoniker": "SatisPaneli\\UrunYonetimi.aspx.cs",
               "ToolTip": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\UrunYonetimi.aspx.cs",
               "RelativeToolTip": "SatisPaneli\\UrunYonetimi.aspx.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAwEwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAwHUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-24T11:18:16.002Z",
               "EditorCaption": ""
@@ -100,8 +100,7 @@
               "ToolTip": "C:\\Users\\Rozerin\\Desktop\\sat\u0131s-paneli - Kopya\\SatisPaneli\\SatisPaneli\\Model1.edmx [Diagram1]",
               "RelativeToolTip": "SatisPaneli\\Model1.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-12-16T20:54:02.583Z",
-              "EditorCaption": " [Diagram1]"
+              "WhenOpened": "2025-12-16T20:54:02.583Z"
             },
             {
               "$type": "Document",
@@ -113,8 +112,7 @@
               "RelativeToolTip": "SatisPaneli\\SatisRaporu.aspx.cs",
               "ViewState": "AgIAAN8AAAAAAAAAAAAcwOcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-22T15:19:13.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T15:19:13.531Z"
             },
             {
               "$type": "Document",
@@ -126,8 +124,7 @@
               "RelativeToolTip": "SatisPaneli\\TestAdmin.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-19T09:28:34.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T09:28:34.303Z"
             },
             {
               "$type": "Document",
@@ -139,8 +136,7 @@
               "RelativeToolTip": "SatisPaneli\\Admin.Master.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T09:33:10.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T09:33:10.844Z"
             },
             {
               "$type": "Document",
@@ -152,8 +148,7 @@
               "RelativeToolTip": "SatisPaneli\\Admin.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-12-19T09:27:07.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T09:27:07.531Z"
             }
           ]
         }

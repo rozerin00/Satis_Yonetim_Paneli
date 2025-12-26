@@ -16,7 +16,7 @@ namespace SatisPaneli
         protected global::System.Web.UI.WebControls.Button btnFiltrele;
         protected global::System.Web.UI.WebControls.Button btnTemizle;
         protected global::System.Web.UI.WebControls.LinkButton btnExcel;
-
+        protected global::System.Web.UI.WebControls.DropDownList ddlGruplama;
 
         // Özet Veriler (Public yaparak aspx sayfasından erişilebilir hale getiriyoruz)
         public string OzetToplamTutar = "0.00 ₺";
@@ -74,6 +74,12 @@ namespace SatisPaneli
             ddlUrunFiltre.DataBind();
         }
 
+        // Dropdown değiştiğinde tetiklenir
+        protected void ddlGruplama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RaporuYukle();
+        }
+
         void RaporuYukle()
         {
             try
@@ -115,12 +121,38 @@ namespace SatisPaneli
                 if (seciliUrun > 0) sorgu = sorgu.Where(x => x.UrunID == seciliUrun);
                 if (tarihSecildi) sorgu = sorgu.Where(x => x.Tarih >= baslangicTarihi && x.Tarih <= bitisTarihi);
 
-                var raporListesi = sorgu.OrderByDescending(x => x.Tarih).ToList();
+                // --- GRUPLAMA / SIRALAMA MANTIĞI ---
+                // Dropdown'dan gelen değere göre sorguyu sıralıyoruz (Grouping mantığı görsel olarak Grid'de zor olsa da sıralama ile gruplanmış gibi görünür)
+                string gruplamaTuru = ddlGruplama.SelectedValue;
+                
+                System.Collections.Generic.List<dynamic> raporListesi;
+
+                if (gruplamaTuru == "Musteri")
+                {
+                    // Müşteriye göre sırala (Önce isim, sonra tarih)
+                    raporListesi = sorgu.OrderBy(x => x.MusteriAdSoyad).ThenByDescending(x => x.Tarih).ToList<dynamic>();
+                }
+                else if (gruplamaTuru == "Urun")
+                {
+                    // Ürüne göre sırala
+                    raporListesi = sorgu.OrderBy(x => x.UrunAd).ThenByDescending(x => x.Tarih).ToList<dynamic>();
+                }
+                else if (gruplamaTuru == "Tarih")
+                {
+                    // Tarihe göre sırala
+                    raporListesi = sorgu.OrderByDescending(x => x.Tarih).ToList<dynamic>();
+                }
+                else
+                {
+                    // Varsayılan (Tarih Desc)
+                    raporListesi = sorgu.OrderByDescending(x => x.Tarih).ToList<dynamic>();
+                }
+
 
                 if (raporListesi.Any())
                 {
-                    OzetToplamTutar = string.Format("{0:C}", raporListesi.Sum(x => x.ToplamTutar));
-                    OzetToplamAdet = raporListesi.Sum(x => x.Adet).ToString();
+                    OzetToplamTutar = string.Format("{0:C}", raporListesi.Sum(x => (decimal)x.ToplamTutar));
+                    OzetToplamAdet = raporListesi.Sum(x => (short)x.Adet).ToString();
                     OzetIslemSayisi = raporListesi.Count.ToString();
                 }
                 else
@@ -137,7 +169,6 @@ namespace SatisPaneli
             {
             }
         }
-
         protected void btnFiltrele_Click(object sender, EventArgs e)
         {
             RaporuYukle();
@@ -161,72 +192,6 @@ namespace SatisPaneli
                 RaporuYukle();
             }
             catch { }
-        }
-
-        protected void btnExcel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Veriyi tazelemek için Grid'i doldur
-                RaporuYukle();
-
-                Response.Clear();
-                Response.ClearHeaders();
-                Response.ClearContent();
-                Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment;filename=SatisRaporu_" + DateTime.Now.ToString("dd_MM_yyyy") + ".xls");
-                Response.ContentType = "application/vnd.ms-excel";
-                Response.ContentEncoding = System.Text.Encoding.GetEncoding("windows-1254");
-                Response.Charset = "utf-8";
-
-                // StringBuilder ile HTML'i manuel oluşturuyoruz (En güvenli yöntem)
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append("<table border='1'>");
-
-                // Başlık Satırı
-                if (gvSatisRaporu.HeaderRow != null)
-                {
-                    sb.Append("<tr>");
-                    foreach (TableCell cell in gvSatisRaporu.HeaderRow.Cells)
-                    {
-                        sb.Append("<td style='background-color: #f2f2f2; font-weight: bold;'>");
-                        sb.Append(cell.Text);
-                        sb.Append("</td>");
-                    }
-                    sb.Append("</tr>");
-                }
-
-                // Veri Satırları
-                foreach (GridViewRow row in gvSatisRaporu.Rows)
-                {
-                    sb.Append("<tr>");
-                    foreach (TableCell cell in row.Cells)
-                    {
-                        sb.Append("<td>");
-                        // Eğer hücrede Label vb. kontrol varsa onu al, yoksa direkt metni al
-                        if (cell.Controls.Count > 0 && cell.Controls[0] is Label)
-                        {
-                            sb.Append(((Label)cell.Controls[0]).Text);
-                        }
-                        else
-                        {
-                            sb.Append(cell.Text.Replace("&nbsp;", "")); // Boşlukları temizle
-                        }
-                        sb.Append("</td>");
-                    }
-                    sb.Append("</tr>");
-                }
-
-                sb.Append("</table>");
-
-                Response.Write(sb.ToString());
-                Response.Flush();
-                Context.ApplicationInstance.CompleteRequest();
-            }
-            catch (Exception)
-            {
-                // Hata oluşursa işlemi sessizce durdur
-            }
         }
     }
 }

@@ -24,6 +24,7 @@ namespace SatisPaneli
             if (!IsPostBack)
             {
                 MusteriBilgileriniGetir();
+                SiparisleriGetir();
             }
         }
 
@@ -87,6 +88,42 @@ namespace SatisPaneli
             {
                 lblMesaj.Text = "Hata: " + ex.Message;
                 lblMesaj.CssClass = "alert alert-danger d-block";
+            }
+        }
+
+        void SiparisleriGetir()
+        {
+            string kullaniciAdi = Session["Kullanici"].ToString();
+            var musteri = db.Musteriler.FirstOrDefault(x => x.AdSoyad == kullaniciAdi);
+
+            if (musteri != null)
+            {
+                // Müşterinin siparişlerini çek (Bellekte işlem yapacağız string.Join için)
+                var rawSiparisler = db.Satislar
+                                  .Where(s => s.MusteriID == musteri.MusteriID)
+                                  .OrderByDescending(s => s.Tarih)
+                                  .ToList();
+
+                var siparisler = rawSiparisler.Select(s => new
+                {
+                    s.SatisID,
+                    s.Tarih,
+                    UrunSayisi = s.SatisDetaylari.Sum(x => (int?)x.Adet) ?? 0,
+                    ToplamTutar = s.SatisDetaylari.Sum(x => (decimal?)(x.Adet * x.BirimFiyat)) ?? 0,
+                    // Ürünlerin isimlerini virgülle birleştir
+                    UrunAdlari = string.Join(", ", s.SatisDetaylari.Select(d => d.Urunler != null ? d.Urunler.UrunAdi : "Bilinmeyen Ürün").Distinct())
+                }).ToList();
+
+                if (siparisler.Count > 0)
+                {
+                    rptSiparisler.DataSource = siparisler;
+                    rptSiparisler.DataBind();
+                    pnlSiparisYok.Visible = false;
+                }
+                else
+                {
+                    pnlSiparisYok.Visible = true;
+                }
             }
         }
     }

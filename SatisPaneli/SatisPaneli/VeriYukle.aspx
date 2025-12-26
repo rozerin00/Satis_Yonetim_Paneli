@@ -20,6 +20,11 @@
                             özellikler (JSON) ve açıklamalar oluşturup kaydeder.</p>
                         <asp:Button ID="btnYukle" runat="server" Text="Ürün Bilgilerini Otomatik Doldur"
                             CssClass="btn btn-success btn-lg btn-block" OnClick="btnYukle_Click" />
+                        <div class="mt-3"></div>
+                        <asp:Button ID="btnTeknoDonusum" runat="server"
+                            Text="TEKNOSTORE DÖNÜŞÜMÜ (Kategorileri ve Ürünleri Yenile)"
+                            CssClass="btn btn-warning btn-lg btn-block font-weight-bold"
+                            OnClick="btnTeknoDonusum_Click" />
 
                         <hr />
 

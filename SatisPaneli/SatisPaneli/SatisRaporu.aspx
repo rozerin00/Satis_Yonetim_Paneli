@@ -14,9 +14,6 @@
 
         <section class="content">
             <asp:UpdatePanel ID="upRapor" runat="server">
-                <Triggers>
-                    <asp:PostBackTrigger ControlID="btnExcel" />
-                </Triggers>
                 <ContentTemplate>
                     <div class="container-fluid">
 
@@ -122,11 +119,16 @@
                             <div class="card-header border-0 d-flex justify-content-between align-items-center"
                                 style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color:white;">
                                 <h3 class="card-title"><i class="fas fa-list mr-1"></i> Satış Listesi</h3>
-                                <div class="card-tools">
-                                    <asp:LinkButton ID="btnExcel" runat="server"
-                                        CssClass="btn btn-success btn-sm font-weight-bold" OnClick="btnExcel_Click">
-                                        <i class="fas fa-file-excel mr-1"></i> Excel'e Aktar
-                                    </asp:LinkButton>
+                                <div class="card-tools d-flex align-items-center">
+                                    <span class="mr-2 text-white small font-weight-bold">Gruplama:</span>
+                                    <asp:DropDownList ID="ddlGruplama" runat="server"
+                                        CssClass="form-control form-control-sm border-0 shadow-sm" AutoPostBack="true"
+                                        OnSelectedIndexChanged="ddlGruplama_SelectedIndexChanged" Width="150px">
+                                        <asp:ListItem Text="Listele (Varsayılan)" Value="Yok"></asp:ListItem>
+                                        <asp:ListItem Text="Müşteriye Göre" Value="Musteri"></asp:ListItem>
+                                        <asp:ListItem Text="Ürüne Göre" Value="Urun"></asp:ListItem>
+                                        <asp:ListItem Text="Tarihe Göre" Value="Tarih"></asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                             </div>
                             <div class="card-body p-0 table-responsive">

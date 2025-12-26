@@ -104,16 +104,12 @@ namespace SatisPaneli
 
                 int urunId = Convert.ToInt32(e.CommandArgument);
 
-                // Sepet: Dictionary<UrunID, Adet>
-                Dictionary<int, int> sepet;
+                // Sepet: Dictionary<int, int>
+                Dictionary<int, int> sepet = Session["Sepet"] as Dictionary<int, int>;
 
-                if (Session["Sepet"] == null)
+                if (sepet == null)
                 {
                     sepet = new Dictionary<int, int>();
-                }
-                else
-                {
-                    sepet = (Dictionary<int, int>)Session["Sepet"];
                 }
 
                 // Ürün varsa adeti artır, yoksa ekle

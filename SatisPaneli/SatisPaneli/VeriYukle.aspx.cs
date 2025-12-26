@@ -117,5 +117,108 @@ namespace SatisPaneli
             gvSonuc.DataSource = dt;
             gvSonuc.DataBind();
         }
+
+        protected void btnTeknoDonusum_Click(object sender, EventArgs e)
+        {
+            // 1. Kategorileri Kontrol Et ve Sabitle (Yoksa Oluştur)
+            // Önce mevcutları standart isimlere çevir, eksikse ekle.
+            string[] standartKategoriler = { "Elektronik", "Bilgisayar & Tablet", "Telefon & Aksesuar", "TV & Görüntü", "Oyun & Konsol", "Foto & Kamera", "Akıllı Ev" };
+            
+            var mevcutKategoriler = db.Kategoriler.ToList();
+            
+            // Mevcutları sırasıyla rename et (böylece ID'ler korunur, ürünler kaybolmaz)
+            for (int i = 0; i < mevcutKategoriler.Count; i++)
+            {
+                if (i < standartKategoriler.Length)
+                {
+                    mevcutKategoriler[i].KategoriAdi = standartKategoriler[i];
+                }
+                else
+                {
+                    mevcutKategoriler[i].KategoriAdi = "Diğer Fırsatlar";
+                }
+            }
+            db.SaveChanges();
+
+            // Eksik kategori varsa ekle
+            if (mevcutKategoriler.Count < standartKategoriler.Length)
+            {
+                for (int i = mevcutKategoriler.Count; i < standartKategoriler.Length; i++)
+                {
+                    Kategoriler yeniKat = new Kategoriler();
+                    yeniKat.KategoriAdi = standartKategoriler[i];
+                    db.Kategoriler.Add(yeniKat);
+                }
+                db.SaveChanges();
+            }
+
+            // Kategorileri ID'leriyle haritala: "Elektronik" -> 1 gibi
+            var kategoriMap = db.Kategoriler.ToDictionary(k => k.KategoriAdi, k => k.KategoriID);
+
+            // 2. Ürünleri Mantıklı Bir Şekilde Dağıt ve Kategorilerini Güncelle
+            var urunler = db.Urunler.ToList();
+            Random rnd = new Random();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Yeni Ad");
+            dt.Columns.Add("Yeni Kategori");
+
+            // GLOBAL ÜRÜN HAVUZU: (Ürün Adı -> Hedef Kategori)
+            // Bu havuzdan her ürüne rastgele bir kimlik vereceğiz ve KATEGORİSİNİ DE ONA GÖRE GÜNCELLEYECEĞİZ.
+            var globalHavuz = new List<Tuple<string, string>>
+            {
+                Tuple.Create("Sony Gürültü Engelleyici Kulaklık", "Elektronik"),
+                Tuple.Create("JBL Bluetooth Hoparlör", "Elektronik"),
+                Tuple.Create("Anker Powerbank 20000mAh", "Telefon & Aksesuar"),
+                Tuple.Create("Logitech MX Master 3 Mouse", "Bilgisayar & Tablet"),
+                Tuple.Create("MacBook Pro 14 M3", "Bilgisayar & Tablet"),
+                Tuple.Create("Asus ROG Strix G16", "Bilgisayar & Tablet"),
+                Tuple.Create("Lenovo ThinkPad X1", "Bilgisayar & Tablet"),
+                Tuple.Create("iPad Air 5. Nesil", "Bilgisayar & Tablet"),
+                Tuple.Create("iPhone 15 Pro Max", "Telefon & Aksesuar"),
+                Tuple.Create("Samsung Galaxy S24 Ultra", "Telefon & Aksesuar"),
+                Tuple.Create("Xiaomi 13T Pro", "Telefon & Aksesuar"),
+                Tuple.Create("Apple Watch Series 9", "Telefon & Aksesuar"),
+                Tuple.Create("Samsung 55' 4K QLED TV", "TV & Görüntü"),
+                Tuple.Create("LG OLED 65' Smart TV", "TV & Görüntü"),
+                Tuple.Create("PlayStation 5 Slim", "Oyun & Konsol"),
+                Tuple.Create("Xbox Series X", "Oyun & Konsol"),
+                Tuple.Create("Nintendo Switch OLED", "Oyun & Konsol"),
+                Tuple.Create("Canon EOS R50", "Foto & Kamera"),
+                Tuple.Create("GoPro Hero 12 Black", "Foto & Kamera"),
+                Tuple.Create("Xiaomi Robot Süpürge", "Akıllı Ev"),
+                Tuple.Create("Philips Hue Başlangıç Seti", "Akıllı Ev")
+            };
+
+            foreach (var urun in urunler)
+            {
+                // Rastgele bir teknoloji kimliği seç
+                var yeniKimlik = globalHavuz[rnd.Next(globalHavuz.Count)];
+                
+                string yeniAd = yeniKimlik.Item1;
+                string hedefKategoriAdi = yeniKimlik.Item2;
+
+                // 1. İsim ve Fiyat Güncelle
+                urun.UrunAdi = yeniAd;
+                urun.BirimFiyat = rnd.Next(10, 800) * 100; // 1000 - 80000 TL
+                urun.Stok = (short)rnd.Next(5, 100);
+
+                // 2. KATEGORİSİNİ GÜNCELLE (En Önemli Kısım)
+                if (kategoriMap.ContainsKey(hedefKategoriAdi))
+                {
+                    urun.KategoriID = kategoriMap[hedefKategoriAdi];
+                }
+
+                dt.Rows.Add(urun.UrunID, yeniAd, hedefKategoriAdi);
+            }
+
+            db.SaveChanges();
+
+            // 3. Özellikleri ve Resimleri Yenile
+            btnYukle_Click(sender, e); // Özellikleri isme göre atayan fonksiyon
+
+             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Dönüşüm Tamamlandı! Ürünler doğru kategorilere (Mouse->Bilgisayar, Kulaklık->Elektronik vb.) taşındı.');", true);
+        }
     }
 }
